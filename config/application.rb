@@ -40,8 +40,10 @@ module SampleApp
     config.filter_parameters += [:password]
     
     if Rails.env.test?
-initializer :after => :initialize_dependency_mechanism do
-# Work around initializer in railties/lib/rails/application/bootstrap.rb ActiveSupport::Dependencies.mechanism = :load
-end end
+		initializer :after => :initialize_dependency_mechanism do
+		# Work around initializer in railties/lib/rails/application/bootstrap.rb 
+		ActiveSupport::Dependencies.mechanism = :load
+	end 
+	end
   end
 end
